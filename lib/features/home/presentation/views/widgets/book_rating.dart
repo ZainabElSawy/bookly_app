@@ -1,27 +1,39 @@
-import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'package:bookly_app/core/utils/styles.dart';
+
+// ignore: must_be_immutable
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
+  MainAxisAlignment mainAxisAlignment;
+  BookRating({
+    Key? key,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
-        const Icon(
+      mainAxisAlignment: mainAxisAlignment,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const [
+        Icon(
+          size: 14,
           FontAwesomeIcons.solidStar,
           color: Color(0xffFFDD4F),
         ),
-        const SizedBox(width: 6.3),
-        const Text(
+        SizedBox(width: 6.3),
+        Text(
           "4.8",
           style: Styles.textStyle16,
         ),
-        const SizedBox(width: 5),
-        Text(
-          "(245)",
-          style: Styles.textStyle14.copyWith(color: const Color(0xff707070)),
+        SizedBox(width: 5),
+        Opacity(
+          opacity: 0.5,
+          child: Text(
+            "(245)",
+            style: Styles.textStyle14,
+          ),
         ),
       ],
     );
