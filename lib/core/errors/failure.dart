@@ -17,8 +17,8 @@ class ServerFailure extends Failure {
       case DioExceptionType.receiveTimeout:
         return ServerFailure('Receive timeout with ApiServer');
       case DioExceptionType.badCertificate:
-      //!Make Sure from this
-      return ServerFailure("badCertificate with ApiServer");
+        //!Make Sure from this
+        return ServerFailure("badCertificate with ApiServer");
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
             dioError.response!.statusCode!, dioError.response!.data);
@@ -29,7 +29,7 @@ class ServerFailure extends Failure {
       case DioExceptionType.unknown:
         return ServerFailure('Unexpected Error, Please try later!');
       default:
-      return ServerFailure("Opps There was an Error, Please try again");
+        return ServerFailure("Opps There was an Error, Please try again");
     }
   }
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
