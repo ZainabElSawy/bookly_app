@@ -6,9 +6,13 @@ import 'package:bookly_app/core/utils/styles.dart';
 // ignore: must_be_immutable
 class BookRating extends StatelessWidget {
   MainAxisAlignment mainAxisAlignment;
+  final double raiting;
+  final int count;
   BookRating({
     Key? key,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    required this.raiting,
+    required this.count,
   }) : super(key: key);
 
   @override
@@ -16,22 +20,22 @@ class BookRating extends StatelessWidget {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        Icon(
+      children: [
+        const Icon(
           size: 14,
           FontAwesomeIcons.solidStar,
           color: Color(0xffFFDD4F),
         ),
-        SizedBox(width: 6.3),
+        const SizedBox(width: 6.3),
         Text(
-          "4.8",
+          "$raiting",
           style: Styles.textStyle16,
         ),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Opacity(
           opacity: 0.5,
           child: Text(
-            "(245)",
+            "($count)",
             style: Styles.textStyle14,
           ),
         ),
